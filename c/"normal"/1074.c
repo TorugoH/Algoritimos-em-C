@@ -1,17 +1,28 @@
 #include<stdio.h>
 
 int main(){
-    int n_entrada=0,i=0,entrada=0;
-    scanf("%d",&n_entrada);
-    printf("NAO TA PRONTO PORRA!\n");
-    for(i=0;i<n_entrada;i++){
-        scanf("%d",&entrada);
-        if(entrada<0){
-            printf("ODD NEGATIVE\n");
+    int n=0,i=0;
+        scanf("%d",&n);
+    int vetor[n];
+    for(i=0;i<n;i++){
+        scanf("%d",&vetor[i]);
+    }
+    for(i=0;i<n;i++){
+        if(vetor[i]%2==0 && vetor[i]<0){
+            printf("EVEN NEGATIVE\n");
         }
-        else if(entrada==0){
-                printf("NULL\0")
+        else if(vetor[i]%2==0 && vetor[i]>0){
+                printf("EVEN POSITIVE\n");
+        }
+        if(vetor[i]%2!=0 && vetor[i]<0){
+              printf("ODD NEGATIVE\n");
+        }
+        else if(vetor[i]%2!=0 && vetor[i]>0){
+              printf("ODD POSITIVE\n");
+        }
+        if(vetor[i]==0){
+            printf("NULL\n");
         }
     }
-
+return 0;
 }

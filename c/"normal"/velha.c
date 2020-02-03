@@ -49,6 +49,14 @@ int main(){
         for(j=1;j<=3;j++){
             velha[i][j]='-';
         }
+        
+    }
+    //imprine a velha
+    for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
+            printf("%c ",velha[i][j]);
+        }
+        printf(" \n");
     }
     /*inico do looping*/
     for(a=0;a<=6;a++){
@@ -152,6 +160,7 @@ int main(){
             }
             else  if(velha[1][3]=='O' && velha[2][2]=='O'&& velha[3][1]=='O'){
                     printf("Voce perdeu:(\n");
+                    system("ls");
             }
             else{
                     printf("Deu velha !!\n");
