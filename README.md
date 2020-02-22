@@ -1,2 +1,2 @@
-# codigod_em_C
+# codigos em C
 Codigos desenvolvidos no primeiro ano cefet-mg
