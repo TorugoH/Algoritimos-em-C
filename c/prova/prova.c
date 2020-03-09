@@ -1,8 +1,9 @@
-// Bruna Carvalho Peixoto Sanches - 201811130054
-// Vitor HUgo Silva Ribeiro - 20181113321
-// Eduardo Tapada - 201811130380
-//Arthur Santana - 20192020378
-//INF1A 2019
+/*Bruna Carvalho Peixoto Sanches - 201811130054
+ Vitor HUgo Silva Ribeiro - 20181113321
+INF1A 2019
+Algoritimos desenvolvido para diciplina ALP, como uma prova que consite na construção de uma lista dinamica
+para a manipulação de alguns dados do tipo string
+*/
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
