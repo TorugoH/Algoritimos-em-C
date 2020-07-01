@@ -13,9 +13,84 @@ void pontinhos(){
          putchar('*');
         }
     }
+int verificar(char velha[4][4]){
+        if(velha[1][1]=='x' && velha[1][2]=='x'&& velha[1][3]=='x'){
+                    printf("Voce ganhou :)\n");
+                    return 9;
+            }
+            else if(velha[2][1]=='x' && velha[2][2]=='x'&& velha[2][3]=='x'){
+                    printf("Voce ganhou:)\n");
+                     return 9;
+            }
+             else  if(velha[3][1]=='x' && velha[3][2]=='x'&& velha[3][3]=='x'){
+                    printf("Voce ganhou:)\n");
+                     return 9;
+            }
+            /*coluna*/
+            else  if(velha[1][1]=='x' && velha[2][1]=='x'&& velha[3][1]=='x'){
+                    printf("Voce ganhou:)\n");
+                     return 9;
+            }
+            else  if(velha[1][2]=='x' && velha[2][2]=='x'&& velha[3][2]=='x'){
+                    printf("Voce ganhou:)\n");
+                     return 9;
+            }
+            else  if(velha[1][3]=='x' && velha[2][3]=='x'&& velha[3][3]=='x'){
+                    printf("Voce ganhou:)\n");
+                     return 9;
+            }
+            /*diagonal*/
+            else  if(velha[1][1]=='x' && velha[2][2]=='x'&& velha[3][3]=='x'){
+                    printf("Voce ganhou:)\n");
+                     return 9;
+            }
+            else  if(velha[1][3]=='x' && velha[2][2]=='x'&& velha[3][1]=='x'){
+                    printf("Voce ganhou:)\n");
+                     return 9;
+            }
+            /*LINHA O*/
+            else if(velha[1][1]=='O' && velha[1][2]=='O'&& velha[1][3]=='O'){
+                    printf("Voce perdeu :(\n");
+                     return 9;
+            }
+            else if(velha[2][1]=='O' && velha[2][2]=='O'&& velha[2][3]=='O'){
+                    printf("Voce perdeu :(\n");
+                     return 9;
+            }
+             else  if(velha[3][1]=='O' && velha[3][2]=='O'&& velha[3][3]=='O'){
+                    printf("Voce perdeu :(\n");
+                     return 9;
+            }
+            /*coluna*/
+            else  if(velha[1][1]=='O' && velha[2][1]=='O'&& velha[3][1]=='O'){
+                    printf("Voce perdeu :(\n");
+                     return 8;
+            }
+            else  if(velha[1][2]=='O' && velha[2][2]=='O'&& velha[3][2]=='O'){
+                    printf("Voce perdeu :(\n");
+                     return 8;
+            }
+            else  if(velha[1][3]=='O' && velha[2][3]=='O'&& velha[3][3]=='O'){
+                    printf("Voce perdeu :(\n");
+                     return 8;
+            }
+            /*diagonal*/
+            else  if(velha[1][1]=='O' && velha[2][2]=='O'&& velha[3][3]=='O'){
+                    printf("Voce perdeu:(\n");
+                     return 8;
+            }
+            else  if(velha[1][3]=='O' && velha[2][2]=='O'&& velha[3][1]=='O'){
+                    printf("Voce perdeu:(\n");
+                     return 8;
+                    system("ls");
+            }
+            else{
+                    return 9;
+            }
+}
 int main(){
  char linha=0,velha[4][4];
- int i=0,j=0,posicao=0,l,a=0,lp=0,cp=0,verificador=0;
+ int i=0,j=0,posicao=0,l,controle=0,a=0,lp=0,cp=0,verificador=0,contador=0;
     pontinhos();
     printf("\n");
     printf("JOGO DA VELHA\n");
@@ -59,7 +134,7 @@ int main(){
         printf(" \n");
     }
     /*inico do looping*/
-    for(a=0;a<=6;a++){
+    while(a<7){
         /*colocar o X*/
         printf("digite as cooredenadas\n");
         scanf("%c",&linha);
@@ -77,6 +152,7 @@ int main(){
         for(i=l;i<=l;i++){
             for(j=posicao;j<=posicao;j++){
                 velha[i][j]='x';
+             //    verificar(velha);
             }
         }
                 printf("\n");
@@ -88,11 +164,16 @@ int main(){
             for(i=lp;i<=lp;i++){
                 for(j=cp;j<=cp;j++){
                     if(velha[i][j]=='x' || velha[i][j]==velha[1][0] || velha[i][j]==velha[2][0] || velha[i][j]==velha[3][0] || velha[i][j]==velha[0][1] ||velha[i][j]==velha[0][2] || velha[i][j]==velha[0][3] || velha[i][j]==velha[0][0]){
-                 verificador=0;
+                        verificar(velha);
+                        controle=verificar(velha);
+                         verificador=0;
+                         if(controle==9){a=9;}
                 }
                     else{
                          velha[i][j]='O';
+                         verificar(velha);
                          verificador=1;
+                         if(controle==9){a=9;}
                         }
                     }   
                 }
@@ -105,65 +186,10 @@ int main(){
               }
                printf(" \n");
            }
+           a++;
     }
-    /*olhando se o usuario ganhou ou perdeu*/
-            /*LINHA*/
-            if(velha[1][1]=='x' && velha[1][2]=='x'&& velha[1][3]=='x'){
-                    printf("Voce ganhou :)\n");
-            }
-            else if(velha[2][1]=='x' && velha[2][2]=='x'&& velha[2][3]=='x'){
-                    printf("Voce ganhou:)\n");
-            }
-             else  if(velha[3][1]=='x' && velha[3][2]=='x'&& velha[3][3]=='x'){
-                    printf("Voce ganhou:)\n");
-            }
-            /*coluna*/
-            else  if(velha[1][1]=='x' && velha[2][1]=='x'&& velha[3][1]=='x'){
-                    printf("Voce ganhou:)\n");
-            }
-            else  if(velha[1][2]=='x' && velha[2][2]=='x'&& velha[3][2]=='x'){
-                    printf("Voce ganhou:)\n");
-            }
-            else  if(velha[1][3]=='x' && velha[2][3]=='x'&& velha[3][3]=='x'){
-                    printf("Voce ganhou:)\n");
-            }
-            /*diagonal*/
-            else  if(velha[1][1]=='x' && velha[2][2]=='x'&& velha[3][3]=='x'){
-                    printf("Voce ganhou:)\n");
-            }
-            else  if(velha[1][3]=='x' && velha[2][2]=='x'&& velha[3][1]=='x'){
-                    printf("Voce ganhou:)\n");
-            }
-            /*LINHA O*/
-            else if(velha[1][1]=='O' && velha[1][2]=='O'&& velha[1][3]=='O'){
-                    printf("Voce perdeu :(\n");
-            }
-            else if(velha[2][1]=='O' && velha[2][2]=='O'&& velha[2][3]=='O'){
-                    printf("Voce perdeu :(\n");
-            }
-             else  if(velha[3][1]=='O' && velha[3][2]=='O'&& velha[3][3]=='O'){
-                    printf("Voce perdeu :(\n");
-            }
-            /*coluna*/
-            else  if(velha[1][1]=='O' && velha[2][1]=='O'&& velha[3][1]=='O'){
-                    printf("Voce perdeu :(\n");
-            }
-            else  if(velha[1][2]=='O' && velha[2][2]=='O'&& velha[3][2]=='O'){
-                    printf("Voce perdeu :(\n");
-            }
-            else  if(velha[1][3]=='O' && velha[2][3]=='O'&& velha[3][3]=='O'){
-                    printf("Voce perdeu :(\n");
-            }
-            /*diagonal*/
-            else  if(velha[1][1]=='O' && velha[2][2]=='O'&& velha[3][3]=='O'){
-                    printf("Voce perdeu:(\n");
-            }
-            else  if(velha[1][3]=='O' && velha[2][2]=='O'&& velha[3][1]=='O'){
-                    printf("Voce perdeu:(\n");
-                    system("ls");
-            }
-            else{
-                    printf("Deu velha !!\n");
-            }
+    /*if(contador!=0){
+            printf("DEU")
+    }*/
 }
 
